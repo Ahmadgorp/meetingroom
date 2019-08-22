@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Booking Meeting</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <ion-item *ngIf="meet">
+      <ion-label position="floating">Name</ion-label>
+      <ion-input placeholder="Name" [(ngModel)]="meet.name"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="meet">
+      <ion-label position="floating">Sections</ion-label>
+      <ion-input placeholder="Name" [(ngModel)]="meet.section"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="meet">
+      <ion-label>Date</ion-label>
+      <ion-datetime displayFormat="MM DD YYYY" placeholder="Date" [(ngModel)]="meet.date"></ion-datetime>
+    </ion-item>
+    <ion-item *ngIf="meet">
+      <ion-label>Time</ion-label>
+      <ion-datetime displayFormat="h:mm a" placeholder="Time" [(ngModel)]="meet.time"></ion-datetime>
+    </ion-item>
+
+    <ion-item *ngIf="meet">
+      <ion-label>Duration</ion-label>
+      <ion-datetime displayFormat="h:mm " placeholder="Duration" [(ngModel)]="meet.duration"></ion-datetime>
+    </ion-item>
+
+    <ion-button expand="full" (click)="saveMeet()">Save
+    </ion-button>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="danger">
+      <ion-fab-button color="danger" routerLink="/" routerDirection="forward" (click)="onRemove(meetId)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-list>
+</ion-content>
